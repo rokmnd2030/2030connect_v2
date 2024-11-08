@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
@@ -11,6 +13,7 @@ import config from '@/config';
 
 export default function Header(): React.ReactNode {
     const theme = useTheme();
+    const router = useRouter();
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -33,15 +36,14 @@ export default function Header(): React.ReactNode {
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    padding: 2,
+                    padding: 1.5,
                 }}
                 >
-                    <Typography sx={{ flexGrow: 1, fontWeight: 600, }} component="div">
+                    <Typography sx={{ display: 'flex', flexGrow: 1, fontWeight: 600, alignItems: 'center' }} component="div">
                         <Link href="/">2030 Connect</Link>
                     </Typography>
-                    <Box>
-                        Sign In
-                    </Box>
+                    <Button onClick={() => router.push('/auth/signin')} sx={{ fontSize: '0.8rem' }} variant="contained" disableElevation>로그인</Button>
+                    <Button onClick={() => router.push('/auth/signup')} sx={{ ml: 1, fontSize: '0.8rem' }} variant="contained" disableElevation>계정등록</Button>
                 </Box>
             </AppBar>
         </Box>

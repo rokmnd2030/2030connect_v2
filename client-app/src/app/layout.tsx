@@ -4,9 +4,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import Header from '@/layout/Header';
 import Body from '@/layout/Body';
-import MenuDrawer from '@/layout/MenuDrawer';
-import theme from './theme';
-import './globals.css';
+import theme from '@/app/theme';
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
   title: {
@@ -18,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.ReactNode {
+
   return (
     <html lang="ko">
       <body className="antialiased">
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <Header />
-            <MenuDrawer />
             <Body>
               {children}
             </Body>
