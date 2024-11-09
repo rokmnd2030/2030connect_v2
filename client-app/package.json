@@ -17,6 +17,8 @@
     "@mui/material": "^6.1.6",
     "@mui/material-nextjs": "^6.1.6",
     "@mui/x-date-pickers": "^7.22.2",
+    "@supabase/ssr": "^0.5.1",
+    "@supabase/supabase-js": "^2.46.1",
     "dayjs": "^1.11.13",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",

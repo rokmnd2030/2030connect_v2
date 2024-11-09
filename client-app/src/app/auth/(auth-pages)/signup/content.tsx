@@ -12,7 +12,7 @@ import Alert from '@mui/material/Alert';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import { post } from './service';
+import { signUp } from './service';
 
 // 계정 등록에 필요한 사용자 정보
 const initialUserData = {
@@ -54,7 +54,7 @@ export default function Content(): React.ReactNode {
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ko">
             <Box component="form" onSubmit={(e) => {
                 e.preventDefault();
-                post(userData);
+                signUp(userData);
             }}>
                 <Grid container spacing={2}>
                     <Grid size={12}>
