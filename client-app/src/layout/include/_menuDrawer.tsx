@@ -9,6 +9,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import Collapse from '@mui/material/Collapse';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import config from '@/config';
 import menu from '@/menu';
@@ -113,28 +114,33 @@ export default function MenuDrawer(): React.ReactNode {
                                     ]}
                                 />
                             </ListItemButton>
-                            {open[item.id] && typeof item.children &&
-                                item.children?.map((subitem, index) => (
-                                    <ListItemButton key={`submenu-${index}`} disableRipple sx={{
-                                        py: 0,
-                                        minHeight: 32,
-                                        color: 'rgba(20,20,20,0.8)',
-                                        borderRadius: '8px',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(200,200,200,0.2)',
-                                        }
-                                    }}>
-                                        <ListItemIcon sx={{ color: '#666666' }}></ListItemIcon>
-                                        <ListItemText
-                                            primary={subitem.label}
-                                            primaryTypographyProps={{
-                                                fontSize: 13,
-                                                fontWeight: 'medium',
-                                            }}
-                                            onClick={() => router.push(`${item.id}/${subitem.id}`)}
-                                        />
-                                    </ListItemButton>
-                                ))}
+                            {typeof item.children &&
+                                <Collapse in={open[item.id]}>
+                                    {
+                                        item.children?.map((subitem, index) => (
+                                            <ListItemButton key={`submenu-${index}`} disableRipple sx={{
+                                                py: 0,
+                                                minHeight: 32,
+                                                color: 'rgba(20,20,20,0.8)',
+                                                borderRadius: '8px',
+                                                '&:hover': {
+                                                    backgroundColor: 'rgba(200,200,200,0.2)',
+                                                }
+                                            }}>
+                                                <ListItemIcon sx={{ color: '#666666' }}></ListItemIcon>
+                                                <ListItemText
+                                                    primary={subitem.label}
+                                                    primaryTypographyProps={{
+                                                        fontSize: 13,
+                                                        fontWeight: 'medium',
+                                                    }}
+                                                    onClick={() => router.push(`/${item.id}/${subitem.id}`)}
+                                                />
+                                            </ListItemButton>
+                                        ))
+                                    }
+                                </Collapse>
+                            }
                         </Box>
                     ))}
                 </NavBox>

@@ -1,15 +1,14 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Content from './content';
 
 export const metadata: Metadata = {
-    title: '계정등록'
+    title: '청년과 함께하는 정책'
 };
 
 export default function Page(): React.ReactNode {
     return (
         <>
-            <h1>계정등록</h1>
+            청년과 함께하는 정책
         </>
-    );
+    )
 }

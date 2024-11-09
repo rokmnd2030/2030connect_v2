@@ -7,7 +7,7 @@ type menuStructure = {
 
 const menu: Readonly<menuStructure[]> = [
     {
-        id: 'introduction',
+        id: 'about',
         label: '서비스 소개',
         description: '2030 Connect란?',
         children: [
@@ -29,17 +29,13 @@ const menu: Readonly<menuStructure[]> = [
         ],
     },
     {
-        id: 'rokmnd2030',
-        label: '국방부 2030 자문단',
-        description: '청년과 함께하는 미래국방',
+        id: 'advisorygroup',
+        label: '2030 자문단',
+        description: '청년과 함께하는 대한민국',
         children: [
             {
-                id: 'about',
-                label: '청년자문단 소개',
-            },
-            {
-                id: 'proposal',
-                label: '정책제언 시스템'
+                id: 'rokmnd2030',
+                label: '국방부 2030 자문단',
             },
         ],
     },
