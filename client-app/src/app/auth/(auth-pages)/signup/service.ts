@@ -1,3 +1,5 @@
+// 계정등록 서비스 함수
+// 서버에서 실행되는 스크립트 (서버 콘솔에 메시지 출력)
 'use server'
 
 import { createClient } from '@/utils/supabase/server';
@@ -46,7 +48,7 @@ const signUp = async (userData: Readonly<{
     });
 
     // MongoDB에 사용자 세부 정보를 저장
-    // Supabase에서 생성되는 User ID 사용
+    // Supabase에서 생성되는 User ID 사용(미구현)
 
     return true;
 }

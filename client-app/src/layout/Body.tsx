@@ -1,3 +1,5 @@
+// 레이아웃에서 실제 출력 부분을 담당
+
 'use client'
 
 import React from 'react';

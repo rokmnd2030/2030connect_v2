@@ -1,3 +1,6 @@
+// 메뉴 구조
+// 현재 2단까지 구현되어 있으나, 필요시 3단까지 구현할 수 있도록...
+// description은 1단계 메뉴에서만 출력 가능
 type menuStructure = {
     id: string;
     label: string;

@@ -10,6 +10,8 @@ import { signIn } from './service';
 export default function Content(): React.ReactNode {
     const [userData, setUserData] = useState<{ email: string; password: string }>({ email: '', password: '' });
 
+    // 로그인 양식 필드 값을 수정하면 실시간으로 상태에 반영
+    // Material UI에서 값을 검증하지만 2차적으로 검사 필요
     const handleTextField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setUserData((prevUserData) => ({
             ...prevUserData,
@@ -20,6 +22,8 @@ export default function Content(): React.ReactNode {
     return (
         <Box component="form" onSubmit={(e) => {
             e.preventDefault();
+
+            // Supabase Auth Sign In
             signIn(userData);
         }}>
             <Grid container spacing={2}>

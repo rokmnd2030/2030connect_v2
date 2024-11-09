@@ -32,6 +32,7 @@ export default function Content(): React.ReactNode {
     dayjs.locale('ko');
 
     // 필드 값을 변경할 때 실행되는 함수
+    // 변경 사항을 실시간으로 상태에 저장
     const handleTextField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setUserData((prevUserData) => ({
             ...prevUserData,
