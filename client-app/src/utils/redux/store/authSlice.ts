@@ -24,12 +24,12 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setAuthState: (state, action: PayloadAction<boolean>) => {
+        setAuthState: (state, action: PayloadAction<{ authStatus: boolean; uuid: string; nickname: string; }>) => {
             return {
                 state: {
-                    authState: action.payload,
-                    uuid: '',
-                    nickname: '',
+                    authState: action.payload.authStatus,
+                    uuid: action.payload.uuid,
+                    nickname: action.payload.nickname,
                 }
             }
         },

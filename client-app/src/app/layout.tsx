@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import StoreProvider from '@/components/StoreProvider';
+import Auth from '@/components/Auth';
 import Header from '@/components/layout/Header';
 import Body from '@/components/layout/Body';
 import theme from '@/styles/theme';
@@ -29,10 +30,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <StoreProvider>
-              <Header />
-              <Body>
-                {children}
-              </Body>
+              <Auth>
+                <Header />
+                <Body>
+                  {children}
+                </Body>
+              </Auth>
             </StoreProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
