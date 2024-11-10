@@ -43,7 +43,7 @@ const signUp = async (userData: Readonly<{
 
     // Supabase Auth User 테이블에 사용자 정보 저장 (이메일, 패스워드)
     // 다른 사용자 정보는 MongoDB에 저장
-    const { data, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
         email: email,
         password: password,
     });

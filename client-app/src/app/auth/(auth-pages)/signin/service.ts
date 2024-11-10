@@ -29,7 +29,7 @@ const signIn = async (userData: Readonly<{ email: string, password: string }>) =
     const supabase = await createClient();
 
     // Supabase Auth Sign In
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
     });

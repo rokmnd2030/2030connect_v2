@@ -3,7 +3,7 @@ import { AppDispatch } from '@/utils/redux/store';
 import { createClient } from '@/utils/supabase/client';
 import { setAuthState, removeAuthState } from '@/utils/redux/store/authSlice';
 
-export const checkAuthStatus = async () => {
+export const useAuthStatus = async () => {
     const dispatch = useDispatch<AppDispatch>();
 
     // Supabase 인스턴스 생성

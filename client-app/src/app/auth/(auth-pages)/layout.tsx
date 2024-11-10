@@ -1,5 +1,5 @@
 // 사용자 인증 페이지에서만 적용되는 레이아웃
-// 사이드바 제거
+// 사이드바를 출력하지 않음
 
 import React from 'react';
 import Box from '@mui/material/Box';

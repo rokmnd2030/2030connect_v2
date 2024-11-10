@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next-nprogress-bar';
