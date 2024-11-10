@@ -8,6 +8,7 @@ import StoreProvider from '@/components/StoreProvider';
 import Auth from '@/components/Auth';
 import Header from '@/components/layout/Header';
 import Body from '@/components/layout/Body';
+import ProgressBar from '@/components/ProgressBar';
 import theme from '@/styles/theme';
 import '@/styles/globals.css';
 
@@ -27,18 +28,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ko">
       <body className="antialiased">
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <StoreProvider>
-              <Auth>
-                <Header />
-                <Body>
-                  {children}
-                </Body>
-              </Auth>
-            </StoreProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <ThemeProvider theme={theme}>
+          <ProgressBar>
+            <AppRouterCacheProvider>
+              <StoreProvider>
+                <Auth>
+                  <Header />
+                  <Body>
+                    {children}
+                  </Body>
+                </Auth>
+              </StoreProvider>
+            </AppRouterCacheProvider>
+          </ProgressBar>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -9,9 +9,9 @@ import { usePathname } from 'next/navigation';
 import CustomMenuDrawer from './CustomMenuDrawer';
 
 export default function MenuDrawer(): React.ReactNode {
-    // 사이드바를 출력하지 않아도 되는 페이지 경로 지정 (필요시 추가 가능)
+    // 사이드바를 출력하지 않아도 되는 페이지 경로 지정 (필요시 추가)
     const pathname = usePathname();
-    const hideMenuDrawer = pathname.match(/^\/auth(\/|$)/);
+    const hideMenuDrawer = pathname.startsWith('/auth');
 
     return (
         <>
