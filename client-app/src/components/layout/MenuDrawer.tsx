@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import CustomMenuDrawer from '@/layout/include/_menuDrawer';
+import CustomMenuDrawer from './CustomMenuDrawer';
 
 export default function MenuDrawer(): React.ReactNode {
     // 사이드바를 출력하지 않아도 되는 페이지 경로 지정 (필요시 추가 가능)

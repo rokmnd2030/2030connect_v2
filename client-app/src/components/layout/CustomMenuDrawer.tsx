@@ -12,7 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Collapse from '@mui/material/Collapse';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import config from '@/config';
-import menu from '@/menu';
+import siteStructure from '@/site-structure';
 
 const NavBox = styled(List)<{ component?: React.ElementType }>({
     '& .MuiListItemButton-root': {
@@ -28,13 +28,13 @@ const NavBox = styled(List)<{ component?: React.ElementType }>({
     },
 });
 
-export default function MenuDrawer(): React.ReactNode {
+export default function CustomMenuDrawer(): React.ReactNode {
     const [open, setOpen] = useState<Record<string, boolean>>({});
 
     useEffect(() => {
         const initialOpen: Record<string, boolean> = {};
 
-        menu.forEach((item) => {
+        siteStructure.forEach((item) => {
             initialOpen[item.id] = false;
         });
 
@@ -66,7 +66,7 @@ export default function MenuDrawer(): React.ReactNode {
         >
             <Box sx={{ overflow: 'auto', padding: 1, boxSizing: 'border-box' }}>
                 <NavBox component="nav" disablePadding>
-                    {menu.map((item, index) => (
+                    {siteStructure.map((item, index) => (
                         <Box key={`mainmenu-${index}`} sx={[
                             open[item.id] ? { pb: 2 } : { pb: 0 }
                         ]}>

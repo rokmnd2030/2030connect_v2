@@ -3,6 +3,7 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 import z from 'zod';
 
 // 계정 등록 양식에서 가져오는 회원 정보를 데이터베이스에 저장 (Supabase PostgreSQL)
@@ -49,6 +50,14 @@ const signUp = async (userData: Readonly<{
 
     // MongoDB에 사용자 세부 정보를 저장
     // Supabase에서 생성되는 User ID 사용(미구현)
+
+
+    // 계정등록이 완료되었으면 첫 페이지로 리다이렉트
+    if (!error) {
+        redirect('/');
+    } else {
+        console.log('계정등록 실패', error);
+    }
 
     return true;
 }

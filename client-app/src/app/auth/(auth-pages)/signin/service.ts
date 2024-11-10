@@ -3,6 +3,7 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 import z from 'zod';
 
 // Supabase Auth 활용한 로그인 기능 구현
@@ -33,7 +34,12 @@ const signIn = async (userData: Readonly<{ email: string, password: string }>) =
         password: password,
     });
 
-    // 로그인 완료 시 리다이렉트 (추후 구현)
+    // 로그인 완료 시 첫 페이지로 리다이렉트
+    if (!error) {
+        redirect('/');
+    } else {
+        console.log('로그인 실패', error);
+    }
 }
 
 export { signIn }

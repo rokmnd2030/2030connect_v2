@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Box from '@mui/material/Box';
-import MenuDrawer from '@/layout/MenuDrawer';
+import MenuDrawer from './MenuDrawer';
 import config from '@/config';
 
 export default function Body({ children }: Readonly<{ children: React.ReactNode }>): React.ReactNode {
