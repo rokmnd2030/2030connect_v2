@@ -27,10 +27,10 @@ export default function Header(): React.ReactNode {
                 position="fixed"
                 elevation={0}
                 sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                    backdropFilter: '(blur: 10px)',
-                    WebkitBackdropFilter: '(blur: 10px)',
-                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(6px)',
+                    WebkitBackdropFilter: 'blur(6px)',
+                    borderBottom: '2px solid rgba(0, 0, 0, 0.04)',
                     color: 'rgba(0, 0, 0, 0.5)',
                     height: config.styles.layout.appBarHeight,
                     zIndex: theme.zIndex.drawer + 1,

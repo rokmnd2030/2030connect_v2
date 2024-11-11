@@ -17,8 +17,10 @@
 }
 
 body {
+  min-height: 100vh;
   color: var(--foreground);
-  background: var(--background);
+  /*background: var(--background); */
+  background: linear-gradient(135deg, #fbfcff, #f3f1ff, #eaf8ff, #ffffff);
   font-family: "Noto Sans KR", serif;
   font-optical-sizing: auto;
   font-style: normal;

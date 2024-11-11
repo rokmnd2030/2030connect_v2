@@ -1,5 +1,11 @@
 // 계정등록 서비스 함수
 // 서버에서 실행되는 스크립트 (서버 콘솔에 메시지 출력)
+
+
+// 추가적으로 필요한 계정 정보
+// 1. 관리자 계정 유무
+// 2. 소속된 분과
+
 'use server'
 
 import { createClient } from '@/utils/supabase/server';

@@ -13,6 +13,8 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import config from '@/config';
 import siteStructure from '@/site-structure';
 
+import HomeIcon from '@mui/icons-material/Home';
+
 // 사용자정의 사이드메뉴 상단 박스 생성
 const NavBox = styled(List)<{ component?: React.ElementType }>({
     '& .MuiListItemButton-root': {
@@ -76,35 +78,88 @@ export default function CustomMenuDrawer(): React.ReactNode {
                 width: '100%',
                 maxWidth: config.styles.layout.maxDrawerWidth,
                 flexShrink: 0,
-                [`& .MuiDrawer-paper`]: { width: '100%', maxWidth: config.styles.layout.maxDrawerWidth, boxSizing: 'border-box', top: config.styles.layout.appBarHeight },
+                [`& .MuiDrawer-paper`]: {
+                    width: '100%',
+                    maxWidth: config.styles.layout.maxDrawerWidth,
+                    boxSizing: 'border-box',
+                    top: config.styles.layout.appBarHeight,
+                    background: 'rgba(255, 255, 255, 0)',
+                    borderRight: '2px solid rgba(0, 0, 0, 0.04)',
+                },
             }}
         >
             <Box sx={{ overflow: 'auto', padding: 1, boxSizing: 'border-box' }}>
                 <NavBox component="nav" disablePadding>
+                    <Box sx={{
+                        mt: 2,
+                        mb: 4,
+                    }}>
+                        <ListItemButton
+                            disableRipple
+                            alignItems="flex-start"
+                            onClick={() => router.push('/')}
+                            sx={{
+                                px: 3,
+                                py: 1,
+                                borderRadius: '8px',
+                                transition: 'box-shadow 0.3s, padding 0.3s, background 0.3s',
+                                '&.Mui-selected': {
+                                    backgroundColor: '#ffffff',
+                                    boxShadow: '0px 0px 21px rgba(0, 0, 0, 0.1)',
+                                    '&:hover': {
+                                        background: 'rgba(255,255,255,1)',
+                                    }
+                                },
+                                '&:hover': {
+                                    background: 'rgba(255,255,255,1)',
+                                },
+                            }}
+                            selected={!selectedPath[2] ? true : false}
+                        >
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText
+                                sx={{ my: 0 }}
+                                primary="홈"
+                                primaryTypographyProps={{
+                                    fontSize: 15,
+                                    fontWeight: 400,
+                                    lineHeight: '36px',
+                                }}
+                            />
+                        </ListItemButton>
+                    </Box>
                     {siteStructure.map((item, index) => (
-                        <Box key={`mainmenu-${index}`} sx={[
-                            open[item.id] ? { pb: 2 } : { pb: 0 }
-                        ]}>
+                        <Box
+                            key={`mainmenu-${index}`}
+                            sx={{
+                                pb: open[item.id] ? 4 : 1,
+                            }}
+                        >
                             <ListItemButton
                                 disableRipple
                                 alignItems="flex-start"
                                 onClick={() => handleToggle(item.id)}
-                                sx={[
-                                    {
-                                        px: 3,
-                                        pt: 2.5,
-                                        borderRadius: '8px',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(200,200,200,0.2)',
-                                        },
+                                sx={{
+                                    px: 3,
+                                    pt: 2.5,
+                                    pb: open[item.id] ? 0 : 2.5,
+                                    borderRadius: '8px',
+                                    transition: 'padding 0.3s, background 0.3s',
+                                    '&:hover': {
+                                        background: 'rgba(255,255,255,1)',
                                     },
-                                    open[item.id] ? { pb: 0 } : { pb: 2.5 },
-                                ]}
+                                }}
                             >
+                                <ListItemIcon sx={{
+                                    mt: open[item.id] ? '0px' : 'initial',
+                                }}>{item.icon}</ListItemIcon>
                                 <ListItemText
+                                    sx={{ my: 0 }}
                                     primary={item.label}
                                     primaryTypographyProps={{
-                                        fontSize: 14,
+                                        fontSize: 15,
                                         fontWeight: 600,
                                         lineHeight: '20px',
                                         mb: '2px',
@@ -115,8 +170,10 @@ export default function CustomMenuDrawer(): React.ReactNode {
                                         fontSize: 12,
                                         lineHeight: '16px',
                                         color: open[item.id] ? 'rgba(0,0,0,0)' : 'rgba(50,50,50,0.5)',
+                                        sx: {
+                                            transition: 'color 0.3s, opacity 0.3s',
+                                        }
                                     }}
-                                    sx={{ my: 0 }}
                                 />
                                 <KeyboardArrowDown
                                     sx={[
@@ -135,22 +192,31 @@ export default function CustomMenuDrawer(): React.ReactNode {
                                         item.children?.map((subitem, index) => (
                                             <ListItemButton
                                                 key={`submenu-${index}`}
-                                                disableRipple sx={{
-                                                    py: 0,
+                                                disableRipple
+                                                sx={{
+                                                    py: 1,
                                                     minHeight: 32,
                                                     color: 'rgba(20,20,20,0.8)',
                                                     borderRadius: '8px',
+                                                    transition: 'box-shadow 0.3s, background 0.3s',
+                                                    '&.Mui-selected': {
+                                                        backgroundColor: '#ffffff',
+                                                        boxShadow: '0px 0px 21px rgba(0, 0, 0, 0.1)',
+                                                        '&:hover': {
+                                                            background: 'rgba(255,255,255,1)',
+                                                        }
+                                                    },
                                                     '&:hover': {
-                                                        backgroundColor: 'rgba(200,200,200,0.2)',
+                                                        background: 'rgba(255,255,255,1)',
                                                     }
                                                 }}
                                                 selected={selectedPath[2] == subitem.id ? true : false}
                                             >
-                                                <ListItemIcon sx={{ color: '#666666' }}></ListItemIcon>
+                                                <ListItemIcon>{subitem.icon}</ListItemIcon>
                                                 <ListItemText
                                                     primary={subitem.label}
                                                     primaryTypographyProps={{
-                                                        fontSize: 13,
+                                                        fontSize: 15,
                                                         fontWeight: 'medium',
                                                     }}
                                                     onClick={() => router.push(`/${item.id}/${subitem.id}`)}
@@ -163,7 +229,7 @@ export default function CustomMenuDrawer(): React.ReactNode {
                         </Box>
                     ))}
                 </NavBox>
-            </Box >
-        </Drawer >
+            </Box>
+        </Drawer>
     )
 }
