@@ -27,7 +27,7 @@ export default function Header(): React.ReactNode {
                 position="fixed"
                 elevation={0}
                 sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
                     backdropFilter: 'blur(6px)',
                     WebkitBackdropFilter: 'blur(6px)',
                     borderBottom: '2px solid rgba(0, 0, 0, 0.04)',
