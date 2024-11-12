@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Content from './content';
+import Content from './Content';
 import Box from '@mui/material/Box';
 
 export const metadata: Metadata = {

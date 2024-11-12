@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import FaceIcon from '@mui/icons-material/Face';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+import FormModal from './FormModal';
 
 const dummy = [
     {
@@ -48,7 +49,7 @@ export default function Content(): React.ReactNode {
     return (
         <>
             <ContentBox sx={{ mb: '36px' }}>
-                <Typography sx={{ color: '#bbbbbb', fontWeight: 600, fontSize: '1.2rem' }}>자신이 생각하는 정책을 한 줄로 적어보세요.</Typography>
+                <FormModal />
             </ContentBox>
             {dummy.map((article, index) => (
                 <ContentBox
