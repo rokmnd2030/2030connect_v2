@@ -4,24 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #333333;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   min-height: 100vh;
-  color: var(--foreground);
   /*background: var(--background); */
-  background: linear-gradient(135deg, #fbfcff, #f3f1ff, #eaf8ff, #ffffff);
   font-family: "Noto Sans KR", serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }

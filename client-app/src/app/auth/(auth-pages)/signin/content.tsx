@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Image from 'next/image';
 import { signIn } from './service';
 
 export default function Content(): React.ReactNode {
@@ -36,6 +37,10 @@ export default function Content(): React.ReactNode {
             </Grid>
             <Box sx={{ mt: 5, textAlign: 'center' }}>
                 <Button type="submit" variant="contained" disableElevation>로그인</Button>
+            </Box>
+            <Box>
+                <Image
+                    alt='카카오 로그인' src='/kakao_login_large_wide.png' height={100} width={200} />
             </Box>
         </Box>
     )

@@ -4,7 +4,10 @@
 + **2030 자문단원**과 직접 소통하는 기회를 가진다.
 
 ### 스택
++ Service
+    + [Supabase](https://supabase.com)
+    + [cloudtype](https://cloudtype.io)
 + Backend
-    + Supabase
-+ Frontend
-    + Next.js (React/TypeScript)
+    + 
++ Frontend(Full Stack)
+    + Next.js (React/TypeScript/MUI)
